@@ -14,11 +14,11 @@ public class Program {
         try {
             conn = DB.getConnection();
 
-            st = conn.prepareStatement(
-                            "UPDATE seller "
-                            + "SET BaseSalary = BaseSalary + ? "
-                            + "WHERE "
-                            + "(DepartmentId = ?)");
+            st = conn.prepareStatement("""
+                            UPDATE seller
+                            SET BaseSalary = BaseSalary + ?
+                            WHERE (DepartmentId = ?)
+                            """);
 
             st.setDouble(1, 200.0);
             st.setInt(2, 2);
